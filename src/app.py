@@ -41,10 +41,8 @@ def get_member_id(member_id):
     
     if member:
         return jsonify(member), 200
-    elif member:
-        return jsonify({"error": "Member not found"}), 400
     else:
-        return jsonify({"error": "Internal Server Error"}), 500
+        return jsonify({"error": "Member not found"}), 400
     
 
 # Endpoint add a new member
@@ -57,11 +55,9 @@ def add_member():
         jackson_family.add_member(new_member)
         return jsonify({"message": "Member added successfully"}), 200
     
-    elif new_member:
-        return jsonify({"error":"Invalid request"}), 400
-    
     else:
-        return jsonify({"error":"Internal Server Error"}), 500
+        return jsonify({"error":"Invalid request"}), 400
+
 
 
 # Endpoint delete a member by id
@@ -74,11 +70,8 @@ def delete_member(member_id):
         jackson_family.delete_member(member_id)
         return jsonify({"done": True}), 200
     
-    elif member:
-        return jsonify({"error": "Invalid request"}), 400
-    
     else:
-        return jsonify({"error":"Internal Server Error"}), 500
+        return jsonify({"error": "Invalid request"}), 400
     
 
 # this only runs if `$ python src/app.py` is executed
